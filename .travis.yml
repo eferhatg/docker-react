@@ -7,3 +7,18 @@ before_install:
 
 script:
   - docker run eferhatg/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elastikbeanstalk
+  region: "eu-west-3"
+  app: "docker-eb"
+  env: "DockerEb-env"
+  bucket_name: "elasticbeanstalk-eu-west-3-777127673198"
+  bucket_path: "docker-eb"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
+
+
