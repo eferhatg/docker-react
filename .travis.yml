@@ -9,7 +9,7 @@ script:
   - docker run eferhatg/docker-react npm run test -- --coverage
 language: generic
 deploy:
-  provider: elastikbeanstalk
+  provider: elasticbeanstalk
   region: "eu-west-3"
   app: "docker-eb"
   env: "DockerEb-env"
